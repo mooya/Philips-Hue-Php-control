@@ -1,0 +1,21 @@
+
+ErrorDocument 404 /errors/error404.php
+RewriteEngine On
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+RewriteRule ^home/([0-9]+) index.php?Page=home&page_id=$1 [L,QSA]
+RewriteRule ^home index.php?Page=home
+RewriteRule ^lights/(.*) index.php?Page=lights&groupname=$1
+RewriteRule ^lights index.php?Page=lights
+RewriteRule ^groups/([0-9]+) index.php?Page=group_detail&group_id=$1  [L,QSA]
+RewriteRule ^groups index.php?Page=groups   [QSA]
+RewriteRule ^bridge index.php?Page=bridge [QSA]
+RewriteRule ^schedules index.php?Page=schedules
+RewriteRule ^sunrise index.php?Page=sunrise
+RewriteRule ^debug index.php?Page=debug
+RewriteRule ^drag index.php?Page=drag  [QSA]
+RewriteRule ^flow index.php?Page=flow  [QSA]
+RewriteRule ^add_scene index.php?Page=add_scene  [QSA]
