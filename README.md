@@ -21,7 +21,8 @@ includes\settings.php > set the options used in the script (such as your Bridge 
 When a hash does not exist on the bridge you can create the hash in the automatically launch wizard.
 
 See the database.sql file for the database layout.
-------------------------------------------------
+
+--------------
 The script uses JQuery, JQuery UI and jQuery UI Touch Punch > https://github.com/furf/jquery-ui-touch-punch
 
 In first instance the script was created for personal use and testing purposes, but now more people can enjoy this. 
