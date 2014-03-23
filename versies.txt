@@ -1,0 +1,6 @@
+2014-03-18 v1
+
+2014-03-23 v1.1:
+Nieuw in v1.1:
+- In de settings.php ModRewrite kunnen activeren + de-activeren
+- Home pagina laat melding zien indien MySQL niet is geactiveerd. je kan dan ook geen scenes maken. 

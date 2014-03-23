@@ -71,4 +71,4 @@ $(function() {
     </tr>
   </tbody>
 </table>
-<input type="button" value="Terug" onclick="window.location='lights/<?= $_GET['group_id'] ?>'">
+<input type="button" value="Terug" onclick="window.location='<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."lights/". $_GET['group_id']; } else{ echo $_cfg["WebsiteURL"] ."index.php?Page=lights&groupname=".$_GET['group_id']; } ?>'">

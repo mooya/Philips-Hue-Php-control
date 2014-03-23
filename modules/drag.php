@@ -105,9 +105,10 @@ var coordinates = function(element,light)
 <table width="1000" class="TableMargin">
   <tr>
     <td>
-    <form name="SelectForm">
+    <form name="SelectForm" action="">
+<input name="Page" value="drag" type="hidden" />
     <table width="1000" border="1" class="TableMargin">
-  
+
   	<thead>
     <tr>
       <th><?php

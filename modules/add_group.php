@@ -71,9 +71,19 @@ echo "<p>Selecteer de lampen die je wilt gebruiken in de nieuwe groep.</p>\n";
 			$Result 	= mysqli_query($DB, $Query);
 		}
 		
+		if ($_cfg["ModRewrite"]) 
+		{ 
+			$Link = "lights/".$GroupID;
+		}
+		else
+		{
+			$Link = "index.php?Page=lights&groupname=".$GroupID;
+		}
+
+		
 		echo "<script>\n";
 		echo "$( document ).ready(function() {\n";
-		echo "	var url =\"lights/".$GroupID."\";\n";
+		echo "	var url =\"".$Link."\";\n";
 		echo "	$(location).attr('href',url);\n";
 		echo "});";
 		echo "</script>\n";

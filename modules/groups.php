@@ -68,10 +68,18 @@ function DeleteGroup(group_id)
 	$i				= 0;
 	while ($row = mysqli_fetch_array($Result, MYSQLI_ASSOC))
 	{ 
+		if ($_cfg["ModRewrite"]) 
+		{ 
+			$Link = "groups/".$row["group_id"];
+		}
+		else
+		{
+			$Link = "index.php?Page=group_detail&group_id=".$row["group_id"];
+		}
 		echo "        <li id=\"".$row["group_id"]."\">
 				<span style=\"float:left\" id=\"groupname_".$row["group_id"]."\">".$row["group_name"]."</span>
 				<span style=\"float:right\">
-					<a href=\"groups/".$row["group_id"]."\"><img src=\"images/lamp.png\" /></a>&nbsp;
+					<a href=\"".$Link."\"><img src=\"images/lamp.png\" /></a>&nbsp;
 					<img src=\"images/edit.png\" onclick=\"ChangeGroupname(".(int)$row["group_id"].");\" style=\"cursor:pointer\" />&nbsp;
 					<img src=\"images/del.png\" style=\"cursor:pointer\" onclick=\"DeleteGroup(".(int)$row["group_id"].");\"  />
 				</span></li>\n";

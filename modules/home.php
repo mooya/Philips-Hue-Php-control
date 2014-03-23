@@ -1,10 +1,17 @@
 <span style="float:left">
 	<h1>Scenes </h1>
 </span>
+
+<?php if ( $_cfg["UseMysql"] 	) {?>
 <span style="float:right">
 	<img src="images/icon_edit_25x25.png" title="Pagina aanpassen" onclick="ChangePage()" />
 	<img src="images/icon_new_25x25.png" title="Nieuwe scene maken" onclick="AddScene()" />
 </span>
+<?php } 
+
+else { 
+	echo "<br style=\"clear:both\"><p>Deze pagina werkt alleen indien MySQL is geactiveerd in de settings.php</p>";	
+}?>
 
 <br style="clear:both" />
 <p id="Notes" style="display:none">Tijdens de Edit Modus kan je de pagina's sorteren door deze te slepen in de nieuwe volgorde. Je kan ook de Scenes in een andere volgorde slepen.</p>
@@ -26,7 +33,7 @@ function GotoPage(PageID)
 	var EditMode = $('#EditMode').val();
 	if (EditMode == 0)//Nog niet in EditMode, hier wel in zetten.
 	{
-		window.location=('home/'+PageID);
+		<?php if ($_cfg["ModRewrite"]) { echo "window.location=('home/'+PageID);"; } else { echo "window.location=('?index.php?Page=home&page_id='+PageID);";  } ?>
 	}
 }
 

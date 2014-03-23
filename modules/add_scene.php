@@ -211,7 +211,8 @@ function PrintRow($i)
 
 if ( !$_cfg["UseMysql"] 	)
 {
-	echo "dit werkt alleen indien MySQL is ingeschakeld.";
+	echo "<h1>dit werkt alleen indien MySQL is ingeschakeld.</h1>";
+	echo "<h1>zie settings.php: \$_cfg[\"UseMysql\"] = true</h1>";
 }
 
 if (!isset($_GET['PageID']) )
@@ -354,10 +355,16 @@ function ChangeBrightnessAndSaveState(lightnumber,brightness)
     <td colspan="2"><div style="background-image:url(images/scenes/<?= str_replace("original","big",$scene_image)?>); background-repeat:no-repeat; height:100px; background-position:right;">
 	<h1><?php if ($EditMode == 1) { echo "Scene bewerken: ".$scene_name; } else { echo "Scene toevoegen"; }  ?></h1>
 	<p>Vink de lampen aan die je in de Scene verwerkt wilt hebben. <br />Stel ook de stand in zoals je deze in de scene opgeslagen wilt hebben.</p>
+
 </div></td>
   </tr>
   <tr>
-    <td colspan="2"></td>
+    <td colspan="2"><?php
+if (isset($_GET['SceneID']) && $_GET['SceneID'] <> 0 )
+{
+	echo "<p>Scene Url (voor bijv. favoriet op iPhone) <a href=\"". $_cfg["WebsiteURL"] ."AjaxHandler.php?Action=SetScene&scene=".$_GET['SceneID']."\" target=\"_blank\">". $_cfg["WebsiteURL"] ."AjaxHandler.php?Action=SetScene&scene=".$_GET['SceneID']."</a></p>";
+}
+?></td>
   </tr>
   <tr>
     <td>

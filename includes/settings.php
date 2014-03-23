@@ -1,11 +1,12 @@
 <?php
 date_default_timezone_set('Europe/Amsterdam');
 
-$_cfg["WebsiteURL"] 					= "http://192.168.0.1/hue/";//Url van het script
+$_cfg["WebsiteURL"] 					= "http://192.168.0.1/hue/";//Url van het script   (of zet hier alleen /hue/ neer)
 $_cfg["BridgeIP"] 						= "192.168.0.100";//Ip adres Hue bridge
 $_cfg["UseMysql"] 						= true;//extra opties zoals werken met eigen groepen. true or false
 $_cfg["BridgeHash"] 					=  "a972dacd094fd40fe78cbe95451197dc98a1cdc9";//random hash, maak op bijv: http://www.sha1-online.com/
 $_cfg["CheckHash"] 					=  true;//controle of de hash geldig is, true or false. Kan op false indien alles goed werkt.
+$_cfg["ModRewrite"] 					=  false;//Apache Mod Rewrite inschakelen? Zet dit op False indien je geen mod-rewrite wilt gebruiken (op bijv. IIS)
 $_cfg["Timezone"]["Latiture"] 		=  52.509535;//nodig voor bepalen sunset + sunrise
 $_cfg["Timezone"]["Longitude"] 	=  5.26062;
 $_cfg["Timezone"]["Offzet"] 		= 1;

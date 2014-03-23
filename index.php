@@ -249,16 +249,16 @@ function ToggleColormode(light)
         <div class="row">
         <div id="menu"> 
       	      <ul class="navigatie">   	
-      	      <li><a  class="first" href="<?= $_cfg["WebsiteURL"] ?>home" >Home</a></li>
-      	      <li><a  href="<?= $_cfg["WebsiteURL"] ?>lights">Lampen</a></li>
-      	      <li><a  href="<?= $_cfg["WebsiteURL"] ?>drag">Drag and drop</a></li>
-<?php if ( $_cfg["UseMysql"] ) { ?>      	      <li><a  href="<?= $_cfg["WebsiteURL"] ?>groups">Groepen</a></li><?php } ?>
-      	      <li><a  href="<?= $_cfg["WebsiteURL"] ?>bridge">Bridge info</a></li>
-      	      <li><a  href="<?= $_cfg["WebsiteURL"] ?>flow" >Flow</a></li>
-      	      <li><a  href="<?= $_cfg["WebsiteURL"] ?>schedules">Schedules</a></li>
-      	      <li><a  href="<?= $_cfg["WebsiteURL"] ?>sunrise">Sunrise</a></li>
+      	      <li><a  class="first" href="<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."home"; } else { echo $_cfg["WebsiteURL"] ."index.php?Page=home"; } ?>">Home</a></li>
+      	      <li><a  href="<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."lights"; } else { echo $_cfg["WebsiteURL"] ."index.php?Page=lights"; } ?>">Lampen</a></li>
+      	      <li><a  href="<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."drag"; } else { echo $_cfg["WebsiteURL"] ."index.php?Page=drag"; } ?>">Drag and drop</a></li>
+<?php if ( $_cfg["UseMysql"] ) { ?>      	      <li><a  href="<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."groups"; } else { echo $_cfg["WebsiteURL"] ."index.php?Page=groups"; } ?>">Groepen</a></li><?php } ?>
+      	      <li><a  href="<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."bridge"; } else { echo $_cfg["WebsiteURL"] ."index.php?Page=bridge"; } ?>">Bridge info</a></li>
+      	      <li><a  href="<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."flow"; } else { echo $_cfg["WebsiteURL"] ."index.php?Page=flow"; } ?>" >Flow</a></li>
+      	      <li><a  href="<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."schedules"; } else { echo $_cfg["WebsiteURL"] ."index.php?Page=schedules"; } ?>">Schedules</a></li>
+      	      <li><a  href="<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."sunrise"; } else { echo $_cfg["WebsiteURL"] ."index.php?Page=sunrise"; } ?>">Sunrise</a></li>
       	      <li><a  href="http://developers.meethue.com/1_lightsapi.html" target="_blank">API info</a></li>
-      	      <li><a  <?php if ($_cfg["Login"]['Username'] == "") { ?>class="last" <?php } ?>href="<?= $_cfg["WebsiteURL"] ?>debug">Debug</a></li>
+      	      <li><a <?php if ($_cfg["Login"]['Username'] == "") { ?>class="last" <?php } ?>href="<?php if ($_cfg["ModRewrite"]) { echo $_cfg["WebsiteURL"]."debug"; } else { echo $_cfg["WebsiteURL"] ."index.php?Page=debug"; } ?>">Debug</a></li>
 <?php if ($_cfg["Login"]['Username'] <> "") { ?>      	      <li><a class="last" href="<?= $_cfg["WebsiteURL"] ?>?Action=Logoff">Uitloggen</a></li><?php } ?>
       	      </ul>
         </div> 

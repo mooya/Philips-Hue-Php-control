@@ -50,7 +50,7 @@ if (isset($_GET['Action']))
 			{
 				//lamp uitzetten
 				$Url 				= "http://".$_cfg["BridgeIP"] ."/api/".$_cfg["BridgeHash"]."/lights/".(int)$Scene["light_id"]."/state";
-				$Data			= "{\"on\":false}";
+				$Data			= "{\"on\":false, \"transitiontime\":50}";//5 seconden fade
 				PutJSON($Url,$Data);
 			}
 			else
@@ -70,6 +70,10 @@ if (isset($_GET['Action']))
 				}			
 			}
 		}
+		$Query    	= "SELECT scene_name FROM scenes WHERE scene_id = ".(int)$_GET['scene'];
+		$Result 	= mysqli_query($DB, $Query);
+		$Scene		= mysqli_fetch_array($Result);
+		echo "Scene <strong>".$Scene['scene_name']."</strong> ingesteld.";
 	}
 	
 	//Groep volgorde aanpassen
