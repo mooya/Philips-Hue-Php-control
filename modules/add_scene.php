@@ -415,7 +415,7 @@ if (isset($_GET['SceneID']) && $_GET['SceneID'] <> 0 )
 		$Url 				= $_cfg["BridgeIP"] ."/api/".$_cfg["BridgeHash"]."/lights";
 		$Config		= GetJSON($Url);
 		$_cfg["ShowGroup"] =0;
-		for ($i=1; $i<count($Config); $i++)
+		foreach ($Config as $i => $row)
 		{
 			$Status[$i] = PrintRow($i);
 		}
